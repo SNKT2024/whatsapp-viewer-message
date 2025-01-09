@@ -42,6 +42,7 @@ function ChatDisplay({ currentUser, users }) {
 
   const scrollRef = useRef(null); // Reference for the scrollable container
   const isAtBottomRef = useRef(true); // Track if user is at the bottom of the chat
+  const BASE_URL = import.meta.env.VITE_API_URL;
 
   /**
    * Fetch initial messages from backend on component mount or when selected user changes
@@ -51,7 +52,7 @@ function ChatDisplay({ currentUser, users }) {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:5000/api/chats?user=${selectedUser}&page=1&limit=20`
+          `${BASE_URL}/api/chats?user=${selectedUser}&page=1&limit=20`
         );
         setMessages(response.data.reverse()); // Set messages in correct order
       } catch (error) {
@@ -79,7 +80,7 @@ function ChatDisplay({ currentUser, users }) {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/api/chats?user=${selectedUser}&page=${Math.ceil(
+        `${BASE_URL}/api/chats?user=${selectedUser}&page=${Math.ceil(
           messages.length / 20 + 1
         )}&limit=20`
       );
