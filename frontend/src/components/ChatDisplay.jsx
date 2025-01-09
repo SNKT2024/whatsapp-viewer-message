@@ -7,13 +7,10 @@ import {
   Paper,
   AppBar,
   Toolbar,
-  IconButton,
-  Menu,
-  MenuItem,
   Avatar,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+
 import dp from "../assets/dp.png";
 
 // Styled components for chat bubbles and timestamps
@@ -42,7 +39,7 @@ function ChatDisplay({ currentUser, users }) {
 
   const scrollRef = useRef(null); // Reference for the scrollable container
   const isAtBottomRef = useRef(true); // Track if user is at the bottom of the chat
-  const BASE_URL = import.meta.env.VITE_API_URL;
+  const BASE_URL = import.meta.env.BASE_URL;
 
   /**
    * Fetch initial messages from backend on component mount or when selected user changes
