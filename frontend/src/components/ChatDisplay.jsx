@@ -39,7 +39,7 @@ function ChatDisplay({ currentUser, users }) {
 
   const scrollRef = useRef(null); // Reference for the scrollable container
   const isAtBottomRef = useRef(true); // Track if user is at the bottom of the chat
-  const BASE_URL = import.meta.env.BASE_URL;
+  const BASE_URL = "https://whatsapp-viewer-message-backend.onrender.com";
 
   /**
    * Fetch initial messages from backend on component mount or when selected user changes
